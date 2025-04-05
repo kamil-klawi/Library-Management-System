@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-tailwindcss"
+  ],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "declaration-block-no-duplicate-properties": true,
+    "font-family-no-duplicate-names": true,
+    "no-duplicate-at-import-rules": true,
+    "comment-no-empty": true,
+    "block-no-empty": true,
+    "string-quotes": "single",
+    "string-no-newline": true,
+    "no-invalid-position-at-import-rule": true,
+    "no-invalid-double-slash-comments": true,
+    "annotation-no-unknown": true,
+    "unit-no-unknown": true,
+    "selector-type-no-unknown":  true,
+    "color-no-invalid-hex": true,
+    "indentation": 4,
+    "max-empty-lines": 1,
+    "number-leading-zero": "always",
+    "unit-allowed-list": ["em", "rem", "%", "vw", "vh", "deg"]
+  }
+}
