@@ -1,5 +1,6 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import sequelize from '../config/database';
+import { Rental } from './rentalModel';
 
 export enum UserRole {
     USER = "User",
@@ -95,3 +96,5 @@ User.init(
         tableName: 'users',
     },
 );
+
+User.hasMany(Rental, { foreignKey: 'userId' });
