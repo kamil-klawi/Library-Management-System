@@ -1,74 +1,82 @@
 # Library management system
 
-Student project
+A student project for managing library operations such as book rentals and user administration.
 
-## Ogólne założenia aplikacji
-Aplikacja webowa będzie umożliwiała użytkownikom:
+## Overview
+A web application for managing a library system. The application allows users to:
+- Browse books.
+- Register and log in to the system.
+- Rent books.
+- Reserve books that are temporarily unavailable.
+- Manage their rentals.
+- For administrators: add, edit, and delete books, manage users, generate reports.
 
-- Przeglądanie książek.
-- Rejestrowanie się i logowanie do systemu.
-- Wypożyczanie książek.
-- Rezerwowanie książek, które są chwilowo niedostępne.
-- Zarządzanie swoimi wypożyczeniami.
-- Dla administratorów: dodawanie, edytowanie i usuwanie książek, zarządzanie użytkownikami, generowanie raportów.
+## Application Structure
 
-## Struktura aplikacji
+- **Frontend**: React.js + TypeScript
+- **Backend**: Node.js + Express.js + TypeScript
+- **Database**: PostgreSQL
+- **Containerization**: Docker
 
-- Frontend (React.js)
-- Backend (Node.js + Express.js)
-- Baza danych (PostgreSQL)
-- Docker
+## Features
 
-## Funkcjonalności
+### 1. Frontend (React.js)
 
-1. Frontend (React.js)
-    1.1 Strona główna
-    - Wyświetlanie dostępnych książek.
-    - Możliwość przeszukiwania książek według tytułu, autora, kategorii, itd.
-    - Filtry i sortowanie książek (np. po dacie wydania, popularności).
-    1.2 Rejestracja i logowanie
-    - Formularz rejestracyjny (z danymi takimi jak imię, nazwisko, e-mail, hasło).
-    - Logowanie użytkowników (hasło, e-mail).
-    - Weryfikacja e-mail (potwierdzenie rejestracji przez wysyłkę linku aktywacyjnego).
-    1.3 Strona profilu użytkownika
-    - Przegląd wypożyczonych książek.
-    - Możliwość przedłużenia wypożyczenia (jeśli książka nie jest zarezerwowana).
-    - Historia wypożyczeń i opóźnienia (z informacją o ewentualnych karach).
-    1.4 Strona książki
-    - Szczegółowe informacje o książce (opis, autor, liczba dostępnych egzemplarzy, rok wydania).
-    - Możliwość wypożyczenia książki.
-    - Możliwość złożenia rezerwacji (jeśli książka jest aktualnie wypożyczona).
-    1.5 Panel administratora
-    - Zarządzanie książkami: dodawanie, edytowanie, usuwanie książek.
-    - Zarządzanie użytkownikami: przeglądanie, edytowanie, blokowanie użytkowników.
-    - Generowanie raportów: raporty o wypożyczeniach, dostępności książek, opóźnieniach.
-2. Backend (Node.js + Express.js)
-    2.1 Autoryzacja i autentykacja użytkowników
-    - Logowanie i rejestracja użytkowników.
-    - Użycie JWT (JSON Web Tokens) do autoryzacji.
-    - Szyfrowanie haseł (np. bcrypt).
-    2.2 Zarządzanie książkami
-    - API do zarządzania książkami (CRUD - Create, Read, Update, Delete).
-    - Możliwość dodawania książek do bazy danych.
-    - Możliwość edytowania i usuwania książek.
-    2.3 Zarządzanie wypożyczeniami
-    - API do obsługi wypożyczeń (wypożyczanie książek, przedłużanie, zwroty).
-    - Logika związana z datą wypożyczenia (np. sprawdzanie, czy książka jest dostępna).
-    - Obsługa rezerwacji książek.
-    2.4 Zarządzanie użytkownikami
-    - API do rejestracji, logowania i zarządzania użytkownikami.
-    - Przechowywanie danych użytkowników w bazie (imię, nazwisko, e-mail, hasło, rola).
-    2.5 Raporty
-    - Generowanie raportów (np. wypożyczenia, książki na stanie, zaległości).
-    - API do pobierania raportów w formacie JSON.
-3. Baza danych (PostgreSQL)
-    3.1 Users: 
-    - Przechowuje dane o użytkownikach (ID, imię, nazwisko, e-mail, hasło, rola).
-    3.2 Books: 
-    - Przechowuje dane o książkach (ID, tytuł, autor, rok wydania, ISBN, liczba dostępnych egzemplarzy).
-    3.3 Loans: 
-    - Przechowuje informacje o wypożyczeniach (ID książki, ID użytkownika, data wypożyczenia, data zwrotu, status).
-    3.4 Reservations: 
-    - Przechowuje informacje o rezerwacjach książek (ID książki, ID użytkownika, data rezerwacji).
-    3.5 Transactions: 
-    - Rejestruje płatności i kary (ID użytkownika, kwota, typ transakcji, data).
+#### Home Page
+- Display available books.
+- Search books by title, author, category, etc.
+- Filters and sorting options (e.g., by publication date, popularity).
+
+#### Registration and Login
+- Registration form (name, surname, email, password).
+- User login (email, password).
+- Email verification (confirmation link sent after registration).
+
+#### User Profile Page
+- View rented books.
+- Extend rental (if the book is not reserved).
+- View rental history and late fees.
+
+#### Book Details Page
+- Display detailed information about the book (description, author, available copies, year of publication).
+- Option to rent the book.
+- Option to reserve the book (if the book is currently rented).
+
+#### Admin Panel
+- Manage books: add, edit, delete books.
+- Manage users: view, edit, block users.
+- Generate reports: rental reports, book availability, overdue rentals.
+
+### 2. Backend (Node.js + Express.js + TypeScript)
+
+#### User Authentication
+- User login and registration.
+- JWT (JSON Web Tokens) for authorization.
+- Password encryption using bcrypt.
+
+#### Book Management
+- API for managing books (CRUD - Create, Read, Update, Delete).
+- Add, edit, and delete books in the database.
+
+#### Rental Management
+- API for managing book rentals (renting, extending, returning).
+- Logic related to rental dates (e.g., checking if a book is available).
+- Book reservation handling.
+
+#### Reports
+- Generating reports (e.g., rentals, book availability, overdue rentals).
+- API for fetching reports in JSON format.
+
+#### Tables
+
+- **Users**:
+   - Stores user information (ID, first name, last name, email, password, role).
+
+- **Books**:
+   - Stores book details (ID, title, author, year of publication, ISBN, available copies).
+
+- **Rentals**:
+   - Stores rental information (book ID, user ID, rental date, return date, status).
+
+- **Transactions**:
+   - Records payments and fines (user ID, amount, transaction type, date).
