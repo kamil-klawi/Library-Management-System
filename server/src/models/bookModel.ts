@@ -1,5 +1,6 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import sequelize from '../config/database';
+import { Rental } from './rentalModel';
 
 export interface IBook {
     id: number;
@@ -52,7 +53,7 @@ Book.init(
         },
         translator: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         publishingHouse: {
             type: DataTypes.STRING,
@@ -76,19 +77,19 @@ Book.init(
         },
         cover: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         height: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         width: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         depth: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
     },
     {
@@ -97,3 +98,5 @@ Book.init(
         tableName: 'books',
     },
 );
+
+Book.hasMany(Rental, { foreignKey: 'bookId' });
