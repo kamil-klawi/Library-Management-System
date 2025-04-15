@@ -1,7 +1,7 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import sequelize from '../config/database';
-import { User } from './userModel';
 import { Book } from './bookModel';
+import { User } from './userModel';
 
 export interface IRental {
     id: number;
@@ -52,7 +52,7 @@ Rental.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: Book,
+                model: User,
                 key: 'id',
             },
             onUpdate: 'CASCADE',
@@ -75,6 +75,3 @@ Rental.init(
         tableName: 'rentals',
     },
 );
-
-Rental.belongsTo(User, { foreignKey: 'userId' });
-Rental.belongsTo(Book, { foreignKey: 'bookId' });

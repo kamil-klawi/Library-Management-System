@@ -1,6 +1,5 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import sequelize from '../config/database';
-import { Rental } from './rentalModel';
 
 export interface IBook {
     id: number;
@@ -98,5 +97,3 @@ Book.init(
         tableName: 'books',
     },
 );
-
-Book.hasMany(Rental, { foreignKey: 'bookId' });
