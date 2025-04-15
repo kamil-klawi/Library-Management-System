@@ -69,14 +69,11 @@ A web application for managing a library system. The application allows users to
 
 #### Tables
 
-- **Users**:
+**Users**:
    - Stores user information (ID, first name, last name, email, password, role).
 
-- **Books**:
+**Books**:
    - Stores book details (ID, title, author, year of publication, ISBN, available copies).
 
-- **Rentals**:
+**Rentals**:
    - Stores rental information (book ID, user ID, rental date, return date, status).
-
-- **Transactions**:
-   - Records payments and fines (user ID, amount, transaction type, date).
